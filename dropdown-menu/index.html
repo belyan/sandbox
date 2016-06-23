@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drop-down menu</title>
+    <link rel="stylesheet/less" type="text/css" href="styles.less"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.6.1/less.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#nav li').hover(function() {
+                $(this).children('ul').stop(false, true).fadeIn(300);
+                $(this).children('a').addClass('selected');
+            }, function () {
+                $(this).children('ul').stop(false, true).fadeOut(300);
+                $(this).children('a').removeClass('selected');
+            });
+        });
+    </script>
+</head>
+<body>
+
+<ul id="nav">
+    <li><a href="#">Element 1</a>
+        <ul>
+            <li><a href="#">Sub Element 1</a></li>
+            <li><a href="#">Sub Element 2</a></li>
+            <li><a href="#">Sub Element 3</a></li>
+            <li><a href="#">Sub Element 4</a></li>
+            <li><a href="#">Sub Element 5</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Element 2</a>
+        <ul>
+            <li><a href="#">Sub Element 1</a></li>
+            <li><a href="#">Sub Element 2</a></li>
+            <li><a href="#">Sub Element 3</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Element 3</a>
+        <ul>
+            <li><a href="#">Sub Element 1</a></li>
+            <li><a href="#">Sub Element 2</a></li>
+            <li><a href="#">Sub Element 3</a></li>
+            <li><a href="#">Sub Element 4</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Element 4</a></li>
+    <li><a href="#">Element 5</a></li>
+</ul>
+
+</body>
+</html>
