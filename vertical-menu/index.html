@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vertical Menu</title>
+    <link rel="stylesheet" href="reset.css"/>
+    <link rel="stylesheet/less" type="text/css" href="styles.less"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.6.1/less.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css">
+    <script>
+        var speed = 300;
+
+        $(function() {
+            $('#nav').draggable({
+                cancel: '#nav .menuItem'
+            });
+
+            $('.menuItem').click(function() {
+                if ($(this).hasClass('selected')) {
+                    $(this).children('.menuItemContent').slideUp(speed);
+                    $(this).removeClass('selected');
+                } else {
+                    $('.menuItemContent').slideUp(speed);
+                    $('.menuItem').removeClass('selected');
+                    $(this).children('.menuItemContent').slideDown(speed);
+                    $(this).addClass('selected');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+<ul id="nav">
+    <li class="handle"></li>
+    <li>
+        <div class="menuItem">
+            <div class="menuItemTop">&bull; News</div>
+            <div class="menuItemContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque eaque eveniet, incidunt
+                molestiae numquam praesentium sapiente? Assumenda eos ex facilis libero magni natus officia sed tempore!
+                Aliquid natus ratione ut.
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="menuItem">
+            <div class="menuItemTop">&bull; Articles</div>
+            <div class="menuItemContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque eaque eveniet, incidunt
+                molestiae numquam praesentium sapiente? Assumenda eos ex facilis libero magni natus officia sed tempore!
+                Aliquid natus ratione ut.
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="menuItem">
+            <div class="menuItemTop">&bull; Releases</div>
+            <div class="menuItemContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque eaque eveniet, incidunt
+                molestiae numquam praesentium sapiente? Assumenda eos ex facilis libero magni natus officia sed tempore!
+                Aliquid natus ratione ut.
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="menuItem">
+            <div class="menuItemTop">&bull; Gallery</div>
+            <div class="menuItemContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque eaque eveniet, incidunt
+                molestiae numquam praesentium sapiente? Assumenda eos ex facilis libero magni natus officia sed tempore!
+                Aliquid natus ratione ut.
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="menuItem">
+            <div class="menuItemTop">&bull; Chat</div>
+            <div class="menuItemContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque eaque eveniet, incidunt
+                molestiae numquam praesentium sapiente? Assumenda eos ex facilis libero magni natus officia sed tempore!
+                Aliquid natus ratione ut.
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="menuItem">
+            <div class="menuItemTop">&bull; Log in</div>
+            <div class="menuItemContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque eaque eveniet, incidunt
+                molestiae numquam praesentium sapiente? Assumenda eos ex facilis libero magni natus officia sed tempore!
+                Aliquid natus ratione ut.
+            </div>
+        </div>
+    </li>
+    <li class="handle"></li>
+</ul>
+
+</body>
+</html>

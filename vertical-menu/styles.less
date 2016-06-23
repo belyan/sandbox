@@ -1,0 +1,88 @@
+/* Global variables */
+@gCol1: #eee;
+@gCol2: darken(@gCol1, 10%);
+@gCol3: darken(@gCol1, 70%);
+@gCol4: darken(@gCol3, 10%);
+@tCol1: #222;
+@tCol2: #111;
+@tCol3: #ddd;
+@menuWidth: 300px;
+@blockHeight: 160px;
+@rad: 10px;
+
+/* Global classes */
+.hidden {
+    display: none;
+}
+
+.gradient(@c1, @c2) {
+    background-image: -webkit-linear-gradient(top, @c1, @c2);
+    background-image: -moz-linear-gradient(top, @c1, @c2);
+    background-image: linear-gradient(top, @c1, @c2);
+}
+
+.shadow(@hoff, @voff, @blur, @color) {
+    -webkit-box-shadow: @hoff @voff @blur @color;
+    -moz-box-shadow: @hoff @voff @blur @color;
+    box-shadow: @hoff @voff @blur @color;
+}
+
+/* Main */
+body {
+    background: url("back.png");
+}
+
+.ui-draggable-dragging {
+    opacity: 0.7;
+
+    .menuItemTop {
+        cursor: default;
+    }
+}
+
+#nav {
+    list-style-type: none;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    margin: 30px;
+    width: @menuWidth;
+    .shadow(3px, 3px, 7px, fadeout(@tCol1, 70%));
+
+    .handle {
+        height: 15px;
+        background: @tCol1;
+        opacity: 0.2;
+        cursor: move;
+    }
+
+    .menuItem {
+        &Top {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: @tCol1;
+            padding: 10px;
+            .gradient(@gCol1, @gCol2);
+            .shadow(0, 1px, 5px, fadeout(#000, 75%));
+            text-shadow: 1px 1px fadeout(#fff, 10%);
+            cursor: pointer;
+
+            &:hover {
+                .gradient(@gCol3, @gCol4);
+                color: @tCol3;
+                text-shadow: none;
+            }
+        }
+
+        &Content {
+            padding: 12px 17px;
+            height: @blockHeight;
+            line-height: 1.2em;
+            font-size: 13px;
+            color: @tCol2;
+            text-shadow: 1px 1px fadeout(#fff, 75%);
+            background: #fff;
+            .hidden;
+        }
+    }
+}
+
