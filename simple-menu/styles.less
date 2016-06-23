@@ -1,0 +1,36 @@
+/* Global variables */
+@mainColor: #233a59;
+@mainColor2: lighten(@mainColor, 20%);
+@textColor: #f7f7f7;
+
+#menu {
+    li {
+        list-style-type: none;
+
+        a {
+            float: left;
+            padding: 15px 30px;
+            color: @textColor;
+            text-decoration: none;
+            font-size: 14px;
+            font-family: verdana, sans-serif;
+            .gradient(@mainColor2, @mainColor;);
+            border-right: 1px solid fadeout(@textColor, 60%);
+
+            &:hover {
+                .gradient(@mainColor, @mainColor2;);
+            }
+        }
+    }
+}
+
+.gradient(@colors) {
+    @angle: 180deg;
+    @angle-new: mod(convert(@angle, deg), 360);
+    @angle-old: 90deg - @angle-new;
+
+    background-image: -webkit-linear-gradient(@angle-old, @colors);
+    background-image:    -moz-linear-gradient(@angle-old, @colors);
+    background-image:      -o-linear-gradient(@angle-old, @colors);
+    background-image:         linear-gradient(@angle-new, @colors);
+}
