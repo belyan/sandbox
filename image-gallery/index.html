@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Gallery</title>
+    <link rel="stylesheet/less" type="text/css" href="styles.less"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.6.1/less.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/slimbox2.js"></script>
+    <link rel="stylesheet" href="css/slimbox2.css"/>
+    <script>
+        $(function() {
+            $('#gallery img').hover(function () {
+                $(this).stop().animate({opacity: 1}, 400);
+            }, function() {
+                $(this).stop().animate({opacity: 0.5}, 400);
+            });
+        });
+    </script>
+</head>
+<body>
+
+<ul id="gallery">
+    <li><a rel="lightbox-gallery" title="New York" href="img/pic1.jpg"><img src="img/pic1_prev.jpg" alt=""/></a></li>
+    <li><a rel="lightbox-gallery" title="Tokyo" href="img/pic2.jpg"><img src="img/pic2_prev.jpg" alt=""/></a></li>
+    <li><a rel="lightbox-gallery" title="San Francisco" href="img/pic3.jpg"><img src="img/pic3_prev.jpg" alt=""/></a></li>
+</ul>
+
+</body>
+</html>
