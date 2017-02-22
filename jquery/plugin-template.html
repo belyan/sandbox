@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Plugin Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="plugin-template.js"></script>
+</head>
+<body>
+
+<ul>
+    <li class="element-1"></li>
+    <li class="element-1"></li>
+    <li class="element-1"></li>
+</ul>
+<ul>
+    <li class="element-2"></li>
+    <li class="element-2"></li>
+    <li class="element-2"></li>
+</ul>
+<ul>
+    <li class="element-3"></li>
+    <li class="element-3"></li>
+    <li class="element-3"></li>
+</ul>
+
+<script>
+    $(function() {
+        $(".element-1").pluginName();
+
+        $(".element-2").pluginName({
+            text: "custom value"
+        });
+
+        $(".element-3").pluginName().publicMethod("new value");
+    });
+</script>
+
+</body>
+</html>

@@ -1,23 +1,29 @@
 /**
  * jQuery Plugin Template
- * https://jqueryboilerplate.com/
+ * @link https://jqueryboilerplate.com/
  *
- * Example of usage:
- * $("#element").defaultPluginName({
- *     propertyName: "a custom value"
+ * @example
+ * $("#element").pluginName({
+ *     property: "custom text"
  * });
  */
 ;(function ($) {
     "use strict";
 
-    var pluginName = "defaultPluginName";
+    var pluginName = "pluginName",
+        dataKey = "plugin_" + pluginName;
 
     // Default options
     var defaults = {
-        propertyName: "default value"
+        text: "default value"
     };
 
-    // The plugin constructor
+    /**
+     * Plugin constructor
+     * @param element
+     * @param options
+     * @constructor
+     */
     function Plugin(element, options) {
         this.element = element;
         this.options = $.extend({}, defaults, options);
@@ -28,31 +34,54 @@
         this.init();
     }
 
-    Plugin.prototype = {
-        constructor: Plugin,
+    /**
+     * Plugin initialization
+     */
+    Plugin.prototype.init = function () {
+        // Place initialization logic here
 
-        init: function () {
-            // Place initialization logic here
-
-            // You already have access to the DOM element and the options via the instance,
-            // e.g. this.element and this.settings
-            // You can add more functions like the one below and call them like the example below
-            this.yourOtherFunction(this.options.propertyName);
-        },
-
-        yourOtherFunction: function(text) {
-            // Some logic
-            $(this.element).text(text);
-        }
+        // You can add more functions like the one below and call them like the example below
+        this.publicMethod(this.options.text);
     };
 
-    // A really lightweight plugin wrapper around the constructor, preventing against multiple instantiations
+    /**
+     * Public method
+     * @param text
+     */
+    Plugin.prototype.publicMethod = function(text) {
+        // You already have access to the DOM element and the options via the instance,
+        // e.g. this.element and this.options
+        privateMethod(this.element, text);
+    };
+
+    /**
+     * Private method
+     * @param element
+     * @param text
+     */
+    function privateMethod(element, text) {
+        element.text(text);
+    }
+
+    /**
+     * Plugin wrapper, preventing against multiple instantiations and return plugin instance
+     * @param options
+     * @returns {*}
+     */
     $.fn[pluginName] = function (options) {
-        return this.each(function () {
-            if (!$.data(this, "plugin_" + pluginName)) {
-                $.data(this, "plugin_" + pluginName, new Plugin(this, options));
+        var plugin = this.data(dataKey);
+
+        if (plugin instanceof Plugin) {
+            // if have options arguments, call plugin.init() again
+            if (typeof options !== 'undefined') {
+                plugin.init(options);
             }
-        });
+        } else {
+            plugin = new Plugin(this, options);
+            this.data(dataKey, plugin);
+        }
+
+        return plugin;
     };
 
 })(jQuery);
