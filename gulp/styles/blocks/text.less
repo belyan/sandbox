@@ -1,0 +1,21 @@
+@color-heading: darkblue;
+@color-text: black;
+@color-link: darkred;
+
+h1 {
+    color: @color-heading;
+    font: 36px/1.2 serif;
+}
+
+p {
+    color: @color-text;
+    font: 16px/1.4 sans-serif;
+
+    & + & {
+        margin-top: 15px;
+    }
+}
+
+a {
+    color: @color-link;
+}
