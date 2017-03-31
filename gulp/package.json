@@ -1,7 +1,7 @@
 {
-  "name": "gulp-starter",
-  "version": "0.1",
-  "description": "Gulp Starter Project",
+  "name": "gulp-starter-kit",
+  "version": "0.0.1",
+  "description": "Gulp Starter Kit",
   "main": "gulpfile.js",
   "repository": {
     "type": "git",
@@ -12,6 +12,8 @@
   "devDependencies": {
     "browser-sync": "^2.18.8",
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-image-data-uri": "^1.2.2",
     "gulp-less": "^3.3.0",
     "gulp-sourcemaps": "^2.5.0"
   }

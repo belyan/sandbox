@@ -2,13 +2,15 @@
 
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
+var reload = browserSync.reload;
 
 // Plugins
+var concat = require('gulp-concat');
+var imageDataURI = require('gulp-image-data-uri');
 var less = require('gulp-less');
 var sourcemaps = require('gulp-sourcemaps');
 
-var reload = browserSync.reload;
-
+// The default task
 gulp.task('default', ['watch']);
 
 // Watch files for changes and reload
@@ -24,6 +26,7 @@ gulp.task('watch', function() {
 
     gulp.watch('markup/**/*.html', reload);
     gulp.watch('styles/**/*.less', ['styles', reload]);
+    gulp.watch('images/icons/*', ['icons', reload]);
 });
 
 // Compile and automatically prefix stylesheets
@@ -33,4 +36,16 @@ gulp.task('styles', function () {
         .pipe(less())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('styles/'));
+});
+
+// Converting icons to inline data-URIs
+gulp.task('icons', function() {
+    return gulp.src('images/icons/*')
+        .pipe(imageDataURI({
+            template: {
+                file: 'styles/icons-template'
+            }
+        }))
+        .pipe(concat('icons.less'))
+        .pipe(gulp.dest('styles/common/'));
 });
