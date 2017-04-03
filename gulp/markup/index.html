@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <title>Index</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <script>
+        var MOCKS = {};
+    </script>
+    <script src="../scripts/mocks.js"></script>
 </head>
 <body>
 
 <i class="logo"></i>
-<h1>Gulp Starter Kit</h1>
-<p>Performs the following tasks:</p>
+<h1>
+    <script>document.write(MOCKS.index.title);</script>
+</h1>
+<p>
+    <script>document.write(MOCKS.index.text);</script>
+</p>
 <ul>
     <li>Watch files for changes and reload with <a href="https://browsersync.io/">BrowserSync</a></li>
     <li>Compile and automatically prefix stylesheets</li>
     <li>Converting icons to inline data-URIs</li>
+    <li>Concat mocks in one file</li>
 </ul>
 
 </body>

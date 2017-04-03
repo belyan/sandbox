@@ -27,6 +27,7 @@ gulp.task('watch', function() {
     gulp.watch('markup/**/*.html', reload);
     gulp.watch('styles/**/*.less', ['styles', reload]);
     gulp.watch('images/icons/*', ['icons', reload]);
+    gulp.watch('mocks/*.js', ['mocks', reload]);
 });
 
 // Compile and automatically prefix stylesheets
@@ -39,7 +40,7 @@ gulp.task('styles', function () {
 });
 
 // Converting icons to inline data-URIs
-gulp.task('icons', function() {
+gulp.task('icons', function () {
     return gulp.src('images/icons/*')
         .pipe(imageDataURI({
             template: {
@@ -48,4 +49,11 @@ gulp.task('icons', function() {
         }))
         .pipe(concat('icons.less'))
         .pipe(gulp.dest('styles/common/'));
+});
+
+// Concat mocks in one file
+gulp.task('mocks', function () {
+    return gulp.src('mocks/*.js')
+        .pipe(concat('mocks.js'))
+        .pipe(gulp.dest('scripts/'));
 });
