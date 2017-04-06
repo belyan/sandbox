@@ -1,0 +1,13 @@
+{namespace com.github.belyan.sandbox.gulp.blocks.list}
+
+/**
+ * List
+ * @param list
+ */
+{template .view}
+    <ul>
+        {foreach $item in $list}
+            <li>{$item}</li>
+        {/foreach}
+    </ul>
+{/template}

@@ -1,0 +1,20 @@
+{namespace com.github.belyan.sandbox.gulp.pages.index}
+
+/**
+ * Index
+ * @param content
+ */
+{template .view}
+    {call com.github.belyan.sandbox.gulp.blocks.icon.view}
+        {param name: 'gulp'/}
+    {/call}
+    {call com.github.belyan.sandbox.gulp.blocks.title.view}
+        {param title: $content.title/}
+    {/call}
+    {call com.github.belyan.sandbox.gulp.blocks.text.view}
+        {param text: $content.text/}
+    {/call}
+    {call com.github.belyan.sandbox.gulp.blocks.list.view}
+        {param list: $content.list/}
+    {/call}
+{/template}

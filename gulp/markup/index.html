@@ -8,22 +8,16 @@
         var MOCKS = {};
     </script>
     <script src="../scripts/mocks.js"></script>
+    <script src="../node_modules/closure-templates/soyutils.js"></script>
+    <script src="../scripts/templates/bundle.soy.js"></script>
 </head>
 <body>
 
-<i class="logo"></i>
-<h1>
-    <script>document.write(MOCKS.index.title);</script>
-</h1>
-<p>
-    <script>document.write(MOCKS.index.text);</script>
-</p>
-<ul>
-    <li>Watch files for changes and reload with <a href="https://browsersync.io/">BrowserSync</a></li>
-    <li>Compile and automatically prefix stylesheets</li>
-    <li>Converting icons to inline data-URIs</li>
-    <li>Concat mocks in one file</li>
-</ul>
+<script>
+    document.write(com.github.belyan.sandbox.gulp.pages.index.view({
+        content: MOCKS.index
+    }));
+</script>
 
 </body>
 </html>
