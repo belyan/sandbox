@@ -11,12 +11,14 @@
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.18.8",
+    "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-ignore": "^2.0.2",
     "gulp-image-data-uri": "^1.2.2",
     "gulp-less": "^3.3.0",
     "gulp-sourcemaps": "^2.5.0",
-    "gulp-soynode": "^1.5.4"
+    "gulp-soynode": "^1.5.4",
+    "run-sequence": "^1.2.2"
   }
 }
