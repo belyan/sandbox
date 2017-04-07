@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Index</title>
-    <link rel="stylesheet" href="../styles/main.css">
-    <script>
-        var MOCKS = {};
-    </script>
-    <script src="../scripts/mocks.js"></script>
     <script src="../node_modules/closure-templates/soyutils.js"></script>
     <script src="../scripts/templates/bundle.soy.js"></script>
+    <script>
+        document.write(com.github.belyan.sandbox.gulp.common.head.view({
+            title: "Index"
+        }));
+    </script>
 </head>
 <body>
 

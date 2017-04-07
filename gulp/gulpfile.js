@@ -3,16 +3,12 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
-
-// Plugins
-var concat = require('gulp-concat');
 var del = require('del');
-var ignore = require('gulp-ignore');
-var imageDataURI = require('gulp-image-data-uri');
-var less = require('gulp-less');
 var runSequence = require('run-sequence');
-var sourcemaps = require('gulp-sourcemaps');
-var soynode = require('gulp-soynode');
+
+// Gulp plugins
+var gulpLoadPlugins = require('gulp-load-plugins');
+var plugins = gulpLoadPlugins();
 
 // The default task
 gulp.task('default', ['watch']);
@@ -51,44 +47,45 @@ gulp.task('clean', function () {
 // Compile and automatically prefix stylesheets
 gulp.task('styles', function () {
     return gulp.src('styles/*.less')
-        .pipe(sourcemaps.init())
-        .pipe(less())
-        .pipe(sourcemaps.write())
+        .pipe(plugins.sourcemaps.init())
+        .pipe(plugins.less())
+        .pipe(plugins.sourcemaps.write())
         .pipe(gulp.dest('styles/'));
 });
 
 // Converting icons to inline data-URIs
 gulp.task('icons', function () {
     return gulp.src('images/icons/*')
-        .pipe(imageDataURI({
+        .pipe(plugins.imageDataUri({
             template: {
                 file: 'styles/icons-template'
             }
         }))
-        .pipe(concat('icons.less'))
+        .pipe(plugins.concat('icons.less'))
         .pipe(gulp.dest('styles/common/'));
 });
 
 // Concat mocks in one file
 gulp.task('mocks', function () {
     return gulp.src('mocks/*.js')
-        .pipe(concat('mocks.js'))
+        .pipe(plugins.concat('mocks.js'))
         .pipe(gulp.dest('scripts/'));
 });
 
 // Task for working with Closure Templates, aka Soy
 gulp.task('templates', function() {
     return gulp.src('templates/**/*.soy')
-        .pipe(soynode())
-        .pipe(ignore.exclude('*.soy'))
-        .pipe(concat('bundle.soy.js'))
+        .pipe(plugins.soynode())
+        .pipe(plugins.ignore.exclude('*.soy'))
+        .pipe(gulp.dest('scripts/templates/'))
+        .pipe(plugins.concat('bundle.soy.js'))
         .pipe(gulp.dest('scripts/templates/'));
 });
 
 // Message extraction
 gulp.task('translations', function() {
     return gulp.src('templates/**/*.soy')
-        .pipe(soynode.lang({
+        .pipe(plugins.soynode.lang({
             outputFile: 'translations/translations_en.xlf'
         }));
 });

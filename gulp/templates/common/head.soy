@@ -1,0 +1,17 @@
+{namespace com.github.belyan.sandbox.gulp.common.head}
+
+/**
+ * HTML Head
+ * @param title
+ */
+{template .view}
+    <meta charset="UTF-8">
+    <title>{$title}</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <script>
+        {literal}
+            var MOCKS = {};
+        {/literal}
+    </script>
+    <script src="../scripts/mocks.js"></script>
+{/template}
