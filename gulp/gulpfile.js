@@ -1,5 +1,10 @@
 'use strict';
 
+// TODO: error handler
+// TODO: single soy?
+
+var config = require('./config.json');
+
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
@@ -17,19 +22,19 @@ gulp.task('default', ['watch']);
 gulp.task('watch', function () {
     browserSync.init({
         server: {
-            baseDir: './',
+            baseDir: config.server.baseDir,
             directory: true
         },
-        startPath: 'markup/',
+        startPath: config.server.startPath,
         port: 3000,
         browser: 'google chrome'
     });
 
-    gulp.watch('markup/**/*.html', reload);
-    gulp.watch('styles/**/*.less', ['styles', reload]);
-    gulp.watch('images/icons/*', ['icons']);
-    gulp.watch('mocks/*.js', ['mocks', reload]);
-    gulp.watch('templates/**/*.soy', ['templates', reload]);
+    gulp.watch(config.watch.markup, reload);
+    gulp.watch(config.watch.icons, ['icons']);
+    gulp.watch(config.watch.styles, ['styles', reload]);
+    gulp.watch(config.watch.mocks, ['mocks', reload]);
+    gulp.watch(config.watch.templates, ['templates', reload]);
 });
 
 // Build automatically generated files
@@ -41,51 +46,57 @@ gulp.task('build', ['clean'], function () {
 
 // Clean automatically generated files
 gulp.task('clean', function () {
-    del(['styles/*.css', 'styles/common/icons.less', 'scripts/mocks.js', 'scripts/templates/']);
-});
-
-// Compile and automatically prefix stylesheets
-gulp.task('styles', function () {
-    return gulp.src('styles/*.less')
-        .pipe(plugins.sourcemaps.init())
-        .pipe(plugins.less())
-        .pipe(plugins.sourcemaps.write())
-        .pipe(gulp.dest('styles/'));
+    del([
+        config.styles.dest + '*.css',
+        config.icons.dest + config.icons.fileName,
+        config.mocks.dest + config.mocks.fileName,
+        config.templates.dest
+    ]);
 });
 
 // Converting icons to inline data-URIs
 gulp.task('icons', function () {
-    return gulp.src('images/icons/*')
+    return gulp.src(config.icons.src)
         .pipe(plugins.imageDataUri({
             template: {
-                file: 'styles/icons-template'
+                file: config.icons.template
             }
         }))
-        .pipe(plugins.concat('icons.less'))
-        .pipe(gulp.dest('styles/common/'));
+        .pipe(plugins.concat(config.icons.fileName))
+        .pipe(gulp.dest(config.icons.dest));
+});
+
+// Compile and automatically prefix stylesheets
+gulp.task('styles', function () {
+    return gulp.src(config.styles.src)
+        .pipe(plugins.sourcemaps.init())
+        .pipe(plugins.less())
+        .pipe(plugins.sourcemaps.write())
+        .pipe(gulp.dest(config.styles.dest));
 });
 
 // Concat mocks in one file
 gulp.task('mocks', function () {
-    return gulp.src('mocks/*.js')
-        .pipe(plugins.concat('mocks.js'))
-        .pipe(gulp.dest('scripts/'));
+    return gulp.src(config.mocks.src)
+        .pipe(plugins.concat(config.mocks.fileName))
+        .pipe(gulp.dest(config.mocks.dest));
 });
 
 // Task for working with Closure Templates, aka Soy
 gulp.task('templates', function() {
-    return gulp.src('templates/**/*.soy')
+    return gulp.src(config.templates.src)
         .pipe(plugins.soynode())
         .pipe(plugins.ignore.exclude('*.soy'))
-        .pipe(gulp.dest('scripts/templates/'))
-        .pipe(plugins.concat('bundle.soy.js'))
-        .pipe(gulp.dest('scripts/templates/'));
+        .pipe(gulp.dest(config.templates.dest))
+        .pipe(plugins.concat(config.templates.fileName))
+        .pipe(gulp.dest(config.templates.dest));
 });
 
 // Message extraction
 gulp.task('translations', function() {
-    return gulp.src('templates/**/*.soy')
+    return gulp.src(config.templates.src)
         .pipe(plugins.soynode.lang({
-            outputFile: 'translations/translations_en.xlf'
+            outputFile: config.templates.options.messageFilePathFormat
+                .replace('{LOCALE}', config.templates.options.locales[0])
         }));
 });
