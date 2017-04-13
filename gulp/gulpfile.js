@@ -1,8 +1,5 @@
 'use strict';
 
-// TODO: error handler
-// TODO: single soy?
-
 var config = require('./config.json');
 
 var gulp = require('gulp');
@@ -63,6 +60,7 @@ gulp.task('icons', function () {
             }
         }))
         .pipe(plugins.concat(config.icons.fileName))
+        .pipe(plugins.size({title: 'icons'}))
         .pipe(gulp.dest(config.icons.dest));
 });
 
@@ -70,7 +68,8 @@ gulp.task('icons', function () {
 gulp.task('styles', function () {
     return gulp.src(config.styles.src)
         .pipe(plugins.sourcemaps.init())
-        .pipe(plugins.less())
+        .pipe(plugins.less().on('error', onError))
+        .pipe(plugins.size({title: 'styles'}))
         .pipe(plugins.sourcemaps.write())
         .pipe(gulp.dest(config.styles.dest));
 });
@@ -79,16 +78,19 @@ gulp.task('styles', function () {
 gulp.task('mocks', function () {
     return gulp.src(config.mocks.src)
         .pipe(plugins.concat(config.mocks.fileName))
+        .pipe(plugins.size({title: 'mocks'}))
         .pipe(gulp.dest(config.mocks.dest));
 });
 
+// TODO: single soy?
 // Task for working with Closure Templates, aka Soy
 gulp.task('templates', function() {
     return gulp.src(config.templates.src)
-        .pipe(plugins.soynode())
+        .pipe(plugins.soynode().on('error', onError))
         .pipe(plugins.ignore.exclude('*.soy'))
         .pipe(gulp.dest(config.templates.dest))
         .pipe(plugins.concat(config.templates.fileName))
+        .pipe(plugins.size({title: 'templates'}))
         .pipe(gulp.dest(config.templates.dest));
 });
 
@@ -100,3 +102,9 @@ gulp.task('translations', function() {
                 .replace('{LOCALE}', config.templates.options.locales[0])
         }));
 });
+
+// Error handler
+function onError(err) {
+    console.log(err);
+    this.emit('end');
+}
