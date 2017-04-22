@@ -33,7 +33,7 @@
     "templates": {
         "src": "templates/**/*.soy",
         "dest": "scripts/templates/",
-        "fileName": "bundle.soy.js",
+        "fileName": "bundle.concat.js",
         "options": {
             "locales": ["en-US"],
             "messageFilePathFormat": "translations/translations_{LOCALE}.xlf"

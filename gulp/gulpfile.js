@@ -8,7 +8,7 @@ var reload = browserSync.reload;
 var del = require('del');
 var runSequence = require('run-sequence');
 
-// Gulp plugins
+// Load plugins
 var gulpLoadPlugins = require('gulp-load-plugins');
 var plugins = gulpLoadPlugins();
 
@@ -27,11 +27,11 @@ gulp.task('watch', function () {
         browser: 'google chrome'
     });
 
-    gulp.watch(config.watch.markup, reload);
-    gulp.watch(config.watch.icons, ['icons']);
-    gulp.watch(config.watch.styles, ['styles', reload]);
-    gulp.watch(config.watch.mocks, ['mocks', reload]);
-    gulp.watch(config.watch.templates, ['templates', reload]);
+    gulp.watch(config.watch.markup, reload).on('change', onChange);
+    gulp.watch(config.watch.icons, ['icons']).on('change', onChange);
+    gulp.watch(config.watch.styles, ['styles', reload]).on('change', onChange);
+    gulp.watch(config.watch.mocks, ['mocks', reload]).on('change', onChange);
+    gulp.watch(config.watch.templates, ['templates', reload]).on('change', onChange);
 });
 
 // Build automatically generated files
@@ -82,10 +82,13 @@ gulp.task('mocks', function () {
         .pipe(gulp.dest(config.mocks.dest));
 });
 
-// TODO: single soy?
 // Task for working with Closure Templates, aka Soy
-gulp.task('templates', function() {
+gulp.task('templates', function (event) {
     return gulp.src(config.templates.src)
+        .pipe(plugins.newer({
+            dest: config.templates.dest,
+            ext: 'soy.js'
+        }))
         .pipe(plugins.soynode().on('error', onError))
         .pipe(plugins.ignore.exclude('*.soy'))
         .pipe(gulp.dest(config.templates.dest))
@@ -95,13 +98,18 @@ gulp.task('templates', function() {
 });
 
 // Message extraction
-gulp.task('translations', function() {
+gulp.task('translations', function () {
     return gulp.src(config.templates.src)
         .pipe(plugins.soynode.lang({
             outputFile: config.templates.options.messageFilePathFormat
                 .replace('{LOCALE}', config.templates.options.locales[0])
         }));
 });
+
+// Change event
+function onChange(event) {
+    console.log(event.path);
+}
 
 // Error handler
 function onError(err) {
