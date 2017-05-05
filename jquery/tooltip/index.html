@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tooltip</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="area" data-title="Lorem ipsum dolor sit amet, consectetur adipisicing elit"></div>
+</div>
+
+<script src="jquery.min.js"></script>
+<script src="tooltip.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.area').tooltip();
+    });
+</script>
+
+</body>
+</html>
