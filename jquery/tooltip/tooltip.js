@@ -39,7 +39,8 @@
      * Tooltip initialization
      */
     Tooltip.prototype.init = function () {
-        var self = this;
+        var self = this,
+            offset = this.element.offset();
 
         if (!this.tooltip) this.tooltip = this.create();
         tooltipSize = getSize(this.tooltip);
@@ -54,7 +55,10 @@
                 self.hide();
 
                 tooltipTimeout = setTimeout(function () {
-                    self.show({left: event.offsetX, top: event.offsetY});
+                    self.show({
+                        left: event.clientX - offset.left,
+                        top: event.clientY - offset.top
+                    });
                 }, self.options.delay);
             });
         }, function () {
