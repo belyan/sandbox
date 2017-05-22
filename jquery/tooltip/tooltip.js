@@ -39,8 +39,7 @@
      * Tooltip initialization
      */
     Tooltip.prototype.init = function () {
-        var self = this,
-            offset = this.element.offset();
+        var self = this;
 
         if (!this.tooltip) this.tooltip = this.create();
         tooltipSize = getSize(this.tooltip);
@@ -56,8 +55,8 @@
 
                 tooltipTimeout = setTimeout(function () {
                     self.show({
-                        left: event.clientX - offset.left,
-                        top: event.clientY - offset.top
+                        left: event.pageX,
+                        top: event.pageY
                     });
                 }, self.options.delay);
             });
@@ -87,11 +86,15 @@
      * @returns {boolean}
      */
     Tooltip.prototype.show = function (position) {
+        var offset;
+
         if (this.tooltip.is(':visible')) return false;
 
+        offset = this.element.offset();
+
         this.tooltip.css({
-            left: position.left - tooltipSize.width / 2,
-            top: position.top - tooltipSize.height - 15
+            left: position.left - offset.left - tooltipSize.width / 2,
+            top: position.top - offset.top - tooltipSize.height - 15
         });
 
         this.tooltip.fadeIn(this.options.animation.time);
