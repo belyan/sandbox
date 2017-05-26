@@ -5,6 +5,7 @@
     <title>Autocomplete</title>
     <!-- jQuery -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!-- jQuery UI -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css">
 </head>
@@ -16,6 +17,8 @@
 
 <script>
     $(document).ready(function () {
+        var cache = {};
+
         $("#search").autocomplete({
             minLength: 3,
             delay: 300, // ms
@@ -24,14 +27,30 @@
                 at: "left bottom"
             },
             source: function (request, response) {
+                var query = request.term;
+
+                // local caching to improve performance
+                if (query in cache) {
+                    response(cache[query]);
+                    return;
+                }
+
                 $.ajax({
                     url: "data.json",
                     dataType: "json",
                     data: {
-                        term: request.term
+                        term: query
                     },
                     success: function (data) {
-                        response(data.searchResults);
+                        var filteredData = $.ui.autocomplete.filter(data.searchResults, query);
+
+                        cache[query] = filteredData;
+                        response(filteredData);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        if (textStatus === "error") {
+                            console.log(errorThrown);
+                        }
                     }
                 });
             }
