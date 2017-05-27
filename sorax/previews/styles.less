@@ -1,0 +1,68 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.clearfix() {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+body {
+    font-family: "PT Sans", sans-serif;
+    font-size: 12px;
+    background: url("https://www.toptal.com/designers/subtlepatterns/patterns/whitey.png");
+}
+
+.container {
+    .clearfix;
+    width: 906px;
+    margin: 10px auto;
+    border: 1px solid #eee;
+    box-shadow: 0 5px 30px fadeout(black, 70%);
+}
+
+.thumb {
+    position: relative;
+    background: url("https://www.toptal.com/designers/subtlepatterns/patterns/black-Linen.png");
+    width: 300px;
+    height: 200px;
+    float: left;
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 30px;
+    color: #eee;
+
+    h2 {
+        text-transform: uppercase;
+        font-size: 1.6em;
+        font-weight: bold;
+        color: #fff;
+    }
+}
+
+.wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 200px;
+
+    img {
+        width: 300px;
+        height: 200px;
+        transition: opacity 600ms, margin-top 600ms;
+    }
+
+    &:hover img {
+        margin-top: 100%;
+        opacity: 0;
+    }
+}
