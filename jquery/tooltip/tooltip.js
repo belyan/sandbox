@@ -14,7 +14,7 @@
         delay: 200,
         animation: {
             time: 100,
-            easing: 'ease'
+            easing: "ease"
         },
         debug: false
     };
@@ -45,10 +45,10 @@
         tooltipSize = getSize(this.tooltip);
 
         this.element.hover(function () {
-            if (self.options.debug) console.log('mouseenter');
+            if (self.options.debug) console.log("mouseenter");
 
-            $(this).on('mousemove', function (event) {
-                if (self.options.debug) console.log('mousemove');
+            $(this).on("mousemove", function (event) {
+                if (self.options.debug) console.log("mousemove");
 
                 clearTimeout(tooltipTimeout);
                 self.hide();
@@ -61,7 +61,7 @@
                 }, self.options.delay);
             });
         }, function () {
-            if (self.options.debug) console.log('mouseleave');
+            if (self.options.debug) console.log("mouseleave");
 
             clearTimeout(tooltipTimeout);
             self.hide();
@@ -88,7 +88,7 @@
     Tooltip.prototype.show = function (position) {
         var offset;
 
-        if (this.tooltip.is(':visible')) return false;
+        if (this.tooltip.is(":visible")) return false;
 
         offset = this.element.offset();
 
@@ -107,7 +107,7 @@
      * @returns {boolean}
      */
     Tooltip.prototype.hide = function () {
-        if (this.tooltip.is(':hidden')) return false;
+        if (this.tooltip.is(":hidden")) return false;
 
         this.tooltip.hide();
 
@@ -136,7 +136,7 @@
 
         if (plugin instanceof Tooltip) {
             // if have options arguments, call plugin.init() again
-            if (typeof options !== 'undefined') {
+            if (typeof options !== "undefined") {
                 plugin.init(options);
             }
         } else {
