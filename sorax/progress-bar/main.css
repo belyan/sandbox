@@ -1,0 +1,54 @@
+body {
+    background: url("http://subtlepatterns.com/patterns/symphony.png");
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.progress-bar {
+    position: relative;
+    width: 200px;
+    height: 30px;
+    overflow: hidden;
+
+    background: #eee;
+    border: 3px solid #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 4px rgba(0,0,0,.3);
+}
+
+.progress-bar:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200%;
+    height: 100%;
+
+    background: #2196F3 repeating-linear-gradient(-45deg, rgba(255,255,255,.5) 0, rgba(255,255,255,.5) 5px,
+        transparent 5px, transparent 10px);
+    animation: fill 2s ease-in-out, spin 2s linear 2s infinite;
+}
+
+@keyframes fill {
+    0% {
+        left: -200%;
+    }
+    100% {
+        left: -100%;
+    }
+}
+
+@keyframes spin {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 0;
+    }
+}
