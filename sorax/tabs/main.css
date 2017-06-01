@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: url("http://subtlepatterns.com/patterns/wild_oliva.png");
+    font: 1em "PT Sans", sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.tabs {
+    position: relative;
+    width: 600px;
+    margin-top: 50px;
+}
+
+.tabs input {
+    display: none;
+}
+
+.tabs label {
+    display: block;
+    float: left;
+    padding: 12px 20px;
+    margin-right: 5px;
+
+    color: #eee;
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+    transition: color .3s, background-color .3s;
+}
+
+.tabs label:hover {
+    color: #f44336;
+}
+
+.tabs input:checked + label {
+    color: #eee;
+    background-color: #f44336;
+    cursor: default;
+}
+
+.panels {
+    clear: both;
+    perspective: 600px;
+}
+
+.panels div {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    padding: 30px 40px;
+
+    border: 2px solid #f44336;
+    color: #333;
+    background: #eee;
+    line-height: 1.4em;
+
+    transform: rotateX(-90deg);
+    transform-origin: top center;
+    transition: opacity .3s, transform 1s;
+}
+
+#tab-1:checked ~ .panels div:nth-child(1),
+#tab-2:checked ~ .panels div:nth-child(2),
+#tab-3:checked ~ .panels div:nth-child(3),
+#tab-4:checked ~ .panels div:nth-child(4) {
+    opacity: 1;
+    transform: rotateX(0deg);
+}
