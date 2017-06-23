@@ -1,0 +1,322 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    font: 16px source-sans-pro, Arial, sans-serif;
+    background: #555 url("http://subtlepatterns.com/patterns/grid.png");
+}
+
+@font-face {
+    font-family: Batch;
+    src: url('fonts/batch-icons-webfont.eot');
+    src: url('fonts/batch-icons-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/batch-icons-webfont.woff') format('woff'),
+         url('fonts/batch-icons-webfont.ttf') format('truetype'),
+         url('fonts/batch-icons-webfont.svg#batchregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.cf:before,
+.cf:after {
+    content: "";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.batch {
+    font-family: Batch, sans-serif;
+    text-decoration: none;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: #df4943;
+}
+
+.app-container {
+    width: 1200px;
+    margin: 25px auto;
+    background: #171e21;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 7px 10px rgba(0, 0, 0, .1);
+    min-height: 300px;
+}
+
+.app-header {
+    height: 100px;
+    background: #111618;
+}
+
+.app-header > div {
+    float: left;
+}
+
+.app-header-search {
+    position: relative;
+    width: 200px;
+    height: inherit;
+    background: #29a786;
+}
+
+.app-header-search input {
+    position: absolute;
+    border: 0;
+    background: none;
+    color: #fff;
+    font-size: .8em;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 20px;
+    width: 60%;
+    border-bottom: 2px solid #fff;
+    outline: none;
+}
+
+.app-header-search input::-webkit-input-placeholder {
+    color: #fff;
+    font-style: italic;
+}
+
+.app-title {
+    color: #eee;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 36px;
+    margin-left: -100px;
+}
+
+.app-title em {
+    font-size: 16px;
+}
+.app-header-close {
+    position: relative;
+    width: 100px;
+    height: inherit;
+    background: #df4942;
+}
+
+.app-header-close > a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 32px;
+    line-height: 32px;
+    margin-top: -16px;
+    margin-left: -16px;
+}
+
+.app-header-main {
+    position: relative;
+    width: 900px;
+    height: inherit;
+}
+
+.app-header-btns {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    margin-top: -15px;
+}
+
+.app-header-btns > a {
+    position: relative;
+    font-size: 26px;
+    line-height: 26px;
+    color: #eee;
+    margin-left: 30px;
+}
+
+.app-label {
+    position: absolute;
+    top: -6px;
+    right: -2px;
+    font-family: source-sans-pro, Arial, sans-serif;
+    font-size: .5em;
+    line-height: 1.6em;
+    background: #df4939;
+    padding: 0 7px;
+    border-radius: 5px;
+}
+
+.app-body {
+    height: 100%;
+    min-height: 300px;
+}
+
+.app-body > div {
+    float: left;
+}
+
+.app-body-sidebar {
+    width: 200px;
+    min-height: inherit;
+    height: 100%;
+}
+
+.app-nav-main a {
+    display: block;
+    box-sizing: border-box;
+    width: 200px;
+    line-height: 40px;
+    color: #fff;
+    font-size: .9em;
+    padding-left: 38px;
+}
+
+.app-nav-main a > span {
+    margin-right: 10px;
+}
+
+.app-nav-main a:hover,
+.app-nav-main a.active {
+    background: #22292c;
+}
+
+.app-nav-cat {
+    color: #2d3c45;
+    text-transform: uppercase;
+    font-size: .9em;
+    font-weight: bold;
+    margin: 15px 35px;
+}
+
+.app-nav-main .count {
+    background: #df4939;
+    font-size: .8em;
+    padding: 3px 9px;
+    margin-left: 10px;
+    border-radius: 3px;
+}
+
+.app-body-main {
+    padding-top: 26px;
+    padding-bottom: 41px;
+    width: 1000px;
+    min-height: 555px;
+    height: 100%;
+    background: #fcfcfd;
+}
+
+.app-col {
+    margin-left: 25px;
+    width: 462px;
+    height: 100%;
+    float: left;
+}
+
+.app-post {
+    box-sizing: border-box;
+    font-size: .9em;
+    color: #333;
+    border: 5px solid #e4e9ee;
+    border-radius: 3px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.app-post-wrap {
+    padding: 0 20px;
+}
+
+.app-post-header {
+    line-height: 50px;
+}
+
+.app-post-header .batch {
+    color: #333;
+}
+    
+.app-post-image {
+    background: #ddd;
+    width: 100%;
+    height: 200px;
+}
+
+.app-post-actions {
+    float: left;
+}
+
+.app-post-likes {
+    float: right;
+}
+
+.app-post-content {
+    margin-top: 22px;
+}
+
+.app-post-options {
+    background: #e4e9ee;
+    color: #96a0aa;
+    margin-top: -6px;
+    font-weight: bold;
+}
+
+.app-new-post {
+    box-sizing: border-box;
+    border: 3px solid #e4e9ee;
+    font-size: .9em;
+    margin-bottom: 30px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.app-new-post input {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background: none;
+}
+
+.app-new-post input[type=text] {
+    width: 456px;
+    height: 50px;
+    font-size: .9em;
+    text-indent: 14px;
+    outline: none;
+}
+
+.app-new-post input[type=text]::-webkit-input-placeholder {
+    font-style: normal;
+    color: #cfd7e0;
+}
+
+.app-new-post input[type=submit] {
+    float: right;
+    background: #29a786;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 70px;
+    height: 40px;
+    border-radius: 3px;
+    margin-top: 12px;
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.app-new-post input[type=submit]:hover {
+    background: #3bbc9a;
+}
+
+.app-new-post-options {
+    background: #e4e9ee;
+    height: 60px;
+}
+
+.app-new-post-buttons {
+    margin-left: 18px;
+    padding-top: 20px;
+}
+
+.app-new-post-buttons a {
+    color: #88969b;
+    font-size: 18px;
+    margin-right: 17px;
+}
