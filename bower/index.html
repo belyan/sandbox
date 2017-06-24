@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bower</title>
+</head>
+<body>
+    <h1>Bower</h1>
+    <p><a href="https://bower.io/docs/api/#commands">Commands</a></p>
+
+    <h2>Install Bower</h2>
+    <p>Bower is a command line utility. Install it with npm.</p>
+    <p><code>npm install -g bower</code></p>
+    <p>Bower requires <a href="http://nodejs.org/">node</a>, <a href="https://www.npmjs.com/">npm</a> and <a href="http://git-scm.org/">git</a>.</p>
+
+    <h2>Install packages</h2>
+    <p>Install packages with <code>bower install</code>. Bower installs packages to <code>bower_components/</code>.</p>
+    <p><code>bower install &lt;package&gt;</code></p>
+
+    <h3>Examples</h3>
+    <p><code>bower install jquery</code></p>
+    <p><code>bower install jquery#2.1</code></p>
+    <p><code>bower install Snap.svg</code></p>
+
+    <h2>Search packages</h2>
+    <p><code>bower search &lt;package&gt;</code></p>
+
+    <h3>Examples</h3>
+    <p><code>bower search ember</code></p>
+    <p><code>bower search backbone</code></p>
+
+    <h2>Save packages</h2>
+    <p>Create a <code>bower.json</code> file for your project with <a href="https://bower.io/docs/api/#init">bower init</a>.</p>
+    <p>Then save new dependencies to your <code>bower.json</code> with <code>bower install &lt;package&gt; --save</code></p>
+
+    <h2>Uninstall packages</h2>
+    <p><code>bower unibstall &lt;package&gt;</code></p>
+
+    <!-- Bower Components -->
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+    <script src="vendor/underscore/underscore-min.js"></script>
+    <script src="vendor/Snap.svg/dist/snap.svg-min.js"></script>
+</body>
+</html>
