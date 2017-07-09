@@ -2,18 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Backbone</title>
+    <title>Backbone Tutorial</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<h1>Developers</h1>
+<h2>Developers</h2>
+<div class="developers">
+    <script type="text/template" id="developerTemplate">
+        <strong><%= name %></strong> (<%= age %>) - <%= job %>
+    </script>
+</div>
+
+<h2>Tasks</h2>
+<div class="tasks">
+    <script type="text/template" id="taskTemplate">
+        <span><%= title %></span>
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
+    </script>
+</div>
 
 <script src="bower_components/jquery/jquery.min.js"></script>
 <script src="bower_components/underscore/underscore-min.js"></script>
 <script src="bower_components/backbone/backbone-min.js"></script>
 
 <script src="js/main.js"></script>
+<script type="text/javascript">
+    var developers = new App.Collections.Team([
+        { name: 'Nikolay', age: 27 },
+        { name: 'Dima', age: 23 },
+        { name: 'Zar', age: 25 }
+    ]);
+
+    var developersView = new App.Views.Team({
+        collection: developers
+    });
+
+    $('.developers').append(developersView.render().el);
+
+    var tasks = new App.Collections.TaskList([
+        { title: 'Fix the bug', priority: 4 },
+        { title: 'Check e-mail', priority: 3 },
+        { title: 'Go to meeting', priority: 5 }
+    ]);
+
+    var tasksView = new App.Views.TaskList({
+        collection: tasks
+    });
+
+    $('.tasks').append(tasksView.render().el);
+</script>
 
 </body>
 </html>
