@@ -57,6 +57,9 @@
     });
 
     App.Models.Task = Backbone.Model.extend({
+        defaults: {
+            priority: 1
+        },
         validate: function(attrs) {
             if (!$.trim(attrs.title)) {
                 return 'You should set title of task';
@@ -99,6 +102,9 @@
     App.Views.TaskList = Backbone.View.extend({
         tagName: 'ul',
         className: 'list',
+        initialize: function() {
+            this.collection.on('add', this.addTask, this);
+        },
         render: function() {
             this.collection.each(this.addTask, this);
             return this;
@@ -112,8 +118,25 @@
         }
     });
 
+    App.Views.AddTask = Backbone.View.extend({
+        el: '#addTask',
+        initialize: function() {
+        },
+        events: {
+            'submit': 'submit'
+        },
+        submit: function(e) {
+            e.preventDefault();
+
+            var newTaskTitle = this.$el.find('input[type="text"]').val();
+            var newTask = new App.Models.Task({ title: newTaskTitle });
+
+            this.collection.add(newTask);
+        }
+    });
+
     /* Helpers */
     function template (id) {
         return _.template( $('#' + id).html() );
-    };
+    }
 })();
