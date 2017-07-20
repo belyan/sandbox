@@ -32,6 +32,9 @@
 <script src="bower_components/backbone/backbone-min.js"></script>
 <script src="js/main.js"></script>
 <script type="text/javascript">
+    var router = new App.Router();
+    Backbone.history.start();
+
     var developers = new App.Collections.Team([
         { name: 'Nikolay', age: 27 },
         { name: 'Dima', age: 23 },

@@ -2,8 +2,34 @@
     window.App = {
         Models: {},
         Views: {},
-        Collections: {}
+        Collections: {},
+        Router: {}
     };
+
+    App.Router = Backbone.Router.extend({
+        routes: {
+            '': 'index',
+            'developers': 'developers',
+            'tasks': 'tasks',
+            'task/:id': 'task',
+            '*notFound': 'notFound'
+        },
+        index: function() {
+            console.log('index');
+        },
+        developers: function() {
+            console.log('developers');
+        },
+        tasks: function() {
+            console.log('tasks');
+        },
+        task: function(id) {
+            console.log('task ' + id);
+        },
+        notFound: function() {
+            console.log('404');
+        }
+    });
 
     App.Models.Developer = Backbone.Model.extend({
         defaults: {
