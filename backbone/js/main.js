@@ -3,8 +3,11 @@
         Models: {},
         Views: {},
         Collections: {},
-        Router: {}
+        Router: {},
+        Events: {}
     };
+
+    App.Events = _.extend({}, Backbone.Events);
 
     App.Router = Backbone.Router.extend({
         routes: {
@@ -25,6 +28,7 @@
         },
         task: function(id) {
             console.log('task ' + id);
+            App.Events.trigger('task:edit', id);
         },
         notFound: function() {
             console.log('404');
@@ -158,6 +162,26 @@
             var newTask = new App.Models.Task({ title: newTaskTitle });
 
             this.collection.add(newTask);
+        }
+    });
+
+    App.Views.EditTask = Backbone.View.extend({
+        el: '#editTask',
+        initialize: function() {
+            App.Events.on('task:edit', this.render, this);
+        },
+        events: {
+            'submit': 'submit'
+        },
+        render: function(id) {
+            this.task = this.collection.get(id);
+            this.$el.find('input[type="text"]').val(this.task.get('title'));
+        },
+        submit: function(e) {
+            e.preventDefault();
+
+            var newTitle = this.$el.find('input[type="text"]').val();
+            this.task.set('title', newTitle);
         }
     });
 

@@ -27,14 +27,17 @@
     </script>
 </div>
 
+<h2>Edit Task</h2>
+<form id="editTask">
+    <input type="text" placeholder="New title of task">
+    <input type="submit" value="Save">
+</form>
+
 <script src="bower_components/jquery/jquery.min.js"></script>
 <script src="bower_components/underscore/underscore-min.js"></script>
 <script src="bower_components/backbone/backbone-min.js"></script>
 <script src="js/main.js"></script>
 <script type="text/javascript">
-    var router = new App.Router();
-    Backbone.history.start();
-
     var developers = new App.Collections.Team([
         { name: 'Nikolay', age: 27 },
         { name: 'Dima', age: 23 },
@@ -48,9 +51,9 @@
     $('.developers').append(developersView.render().el);
 
     var tasks = new App.Collections.TaskList([
-        { title: 'Fix the bug', priority: 4 },
-        { title: 'Check e-mail', priority: 3 },
-        { title: 'Go to meeting', priority: 5 }
+        { id: 1, title: 'Fix the bug', priority: 4 },
+        { id: 2, title: 'Check e-mail', priority: 3 },
+        { id: 3, title: 'Go to meeting', priority: 5 }
     ]);
 
     var tasksView = new App.Views.TaskList({
@@ -62,6 +65,13 @@
     var addTaskView = new App.Views.AddTask({
         collection: tasks
     });
+
+    var editTaskView = new App.Views.EditTask({
+        collection: tasks
+    });
+
+    var router = new App.Router();
+    Backbone.history.start();
 </script>
 
 </body>
