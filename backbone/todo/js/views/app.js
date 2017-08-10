@@ -16,6 +16,7 @@ app.AppView = Backbone.View.extend({
         this.$input = this.$('.new-todo');
         this.$footer = this.$('.footer');
         this.$main = this.$('.main');
+        this.$list = $('.todo-list');
 
         this.listenTo(app.todos, 'add', this.addOne);
         this.listenTo(app.todos, 'reset', this.addAll);
@@ -33,24 +34,40 @@ app.AppView = Backbone.View.extend({
         if (app.todos.length) {
             this.$main.show();
             this.$footer.show();
+
             this.$footer.html(this.statsTemplate({
                 completed: completed,
                 remaining: remaining
             }));
+
+            this.$('.filters li a')
+                .removeClass('selected')
+                .filter('[href="#/' + (app.TodoFilter || '') + '"]')
+                .addClass('selected');
         } else {
             this.$main.hide();
             this.$footer.hide();
         }
+
+        this.allCheckbox.checked = !remaining;
     },
 
     addOne: function(todo) {
         var view = new app.TodoView({ model: todo });
-        this.$('.todo-list').append(view.render().el);
+        this.$list.append(view.render().el);
     },
 
     addAll: function() {
-        this.$('.todo-list').html('');
+        this.$list.html('');
         app.todos.each(this.addOne, this);
+    },
+
+    filterOne: function(todo) {
+        todo.trigger('visible');
+    },
+
+    filterAll: function() {
+        app.todos.each(this.filterOne, this);
     },
 
     newAttributes: function() {
@@ -62,11 +79,24 @@ app.AppView = Backbone.View.extend({
     },
 
     createOnEnter: function(event) {
-        if (event.which !== ENTER_KEY || !this.$input.val().trim()) {
-            return;
+        if (event.which === ENTER_KEY && this.$input.val().trim()) {
+            app.todos.create(this.newAttributes());
+            this.$input.val('');
         }
+    },
 
-        app.todos.create(this.newAttributes());
-        this.$input.val('');
+    clearCompleted: function() {
+        _.invoke(app.todos.completed(), 'destroy');
+        return false;
+    },
+
+    toggleAllComplete: function() {
+        var completed = this.allCheckbox.checked;
+
+        app.todos.each(function(todo) {
+            todo.save({
+                'completed': completed
+            });
+        });
     }
 });
