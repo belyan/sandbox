@@ -1,0 +1,25 @@
+{
+  "name": "heroes",
+  "version": "1.0.0",
+  "description": "Backbone Tour of Heroes App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "backbone",
+    "spa",
+    "mvc"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/belyan/sandbox.git"
+  },
+  "author": "Yuri Beliakov <yuri.beliakov@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "backbone": "^1.1.2",
+    "jquery": "^2.1.2",
+    "underscore": "^1.8.3"
+  }
+}
