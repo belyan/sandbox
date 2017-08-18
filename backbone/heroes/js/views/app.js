@@ -3,11 +3,14 @@ var app = app || {};
 app.AppView = Backbone.View.extend({
     el: '.app',
 
-    template: _.template('<h1><%= title %></h1><h2><%= hero %> details!</h2>'),
+    template: _.template($('#app-template').html()),
 
     initialize: function () {
         this.title = 'Tour of Heroes';
-        this.hero = 'Windstorm';
+        this.hero = new app.Hero({
+            id: 1,
+            name: 'Windstorm'
+        });
 
         this.render();
     },
@@ -15,7 +18,7 @@ app.AppView = Backbone.View.extend({
     render: function () {
         this.$el.html(this.template({
             title: this.title,
-            hero: this.hero
+            hero: this.hero.toJSON()
         }));
     }
 });

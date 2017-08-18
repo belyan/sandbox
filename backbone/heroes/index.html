@@ -8,12 +8,21 @@
 
 <main class="app"></main>
 
+<!-- Templates -->
+<script type="text/template" id="app-template">
+    <h1><%= title %></h1>
+    <h2><%= hero.name %> details!</h2>
+    <div><label>id: </label><%= hero.id %></div>
+    <div><label>name: </label><%= hero.name %></div>
+</script>
+
 <!-- Libs -->
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/underscore/underscore-min.js"></script>
 <script src="node_modules/backbone/backbone-min.js"></script>
 
 <!-- App -->
+<script src="js/models/hero.js"></script>
 <script src="js/views/app.js"></script>
 <script src="js/app.js"></script>
 
