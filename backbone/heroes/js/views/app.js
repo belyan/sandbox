@@ -5,6 +5,10 @@ app.AppView = Backbone.View.extend({
 
     template: _.template($('#app-template').html()),
 
+    events: {
+        'input input.heroName': 'editHeroName'
+    },
+
     initialize: function () {
         this.title = 'Tour of Heroes';
         this.hero = new app.Hero({
@@ -12,6 +16,7 @@ app.AppView = Backbone.View.extend({
             name: 'Windstorm'
         });
 
+        this.listenTo(this.hero, 'change:name', this.updateHeroName);
         this.render();
     },
 
@@ -20,5 +25,15 @@ app.AppView = Backbone.View.extend({
             title: this.title,
             hero: this.hero.toJSON()
         }));
+    },
+
+    editHeroName: function (event) {
+        var input = event.target;
+        this.hero.set('name', input.value);
+    },
+
+    updateHeroName: function (model) {
+        var name = model.get('name');
+        this.$el.find('span.heroName').html(name);
     }
 });

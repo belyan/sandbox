@@ -11,9 +11,12 @@
 <!-- Templates -->
 <script type="text/template" id="app-template">
     <h1><%= title %></h1>
-    <h2><%= hero.name %> details!</h2>
+    <h2><span class="heroName"><%= hero.name %></span> details!</h2>
     <div><label>id: </label><%= hero.id %></div>
-    <div><label>name: </label><%= hero.name %></div>
+    <div>
+        <label>name: </label>
+        <input class="heroName" value="<%= hero.name %>" placeholder="name"/>
+    </div>
 </script>
 
 <!-- Libs -->
