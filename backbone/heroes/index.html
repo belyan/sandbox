@@ -7,27 +7,38 @@
 </head>
 <body>
 
-<main class="app"></main>
+<main class="app">
+    <h1>Tour of Heroes</h1>
+    <h2>My Heroes</h2>
+    <ul class="heroes"></ul>
+</main>
 
 <!-- Templates -->
+<script id="heroTemplate" type="text/template">
+    <li <% if (hero.selected) { %> class="selected" <% } %>>
+        <span class="badge"><%= hero.id %></span> <span class="name"><%= hero.name %></span>
+    </li>
+</script>
+
 <script type="text/template" id="app-template">
     <h1><%= title %></h1>
     <h2>My Heroes</h2>
     <ul class="heroes">
         <% _.each(heroes, function(hero) { %>
-        <li data-id="<%= hero.id %>" <% if (hero.id === selectedHero.id) { %> class="selected" <% } %>>
-            <span class="badge"><%= hero.id %></span> <span class="name"><%= hero.name %></span>
-        </li>
+            <li data-id="<%= hero.id %>" <% if (hero.id === selectedHero.id) { %> class="selected" <% } %>>
+                <span class="badge"><%= hero.id %></span> <span class="name"><%= hero.name %></span>
+            </li>
         <% }); %>
     </ul>
-    <% if (selectedHero.id) { %>
-        <div class="hero-details">
-            <h2><span class="name"><%= selectedHero.name %></span> details!</h2>
-            <div><label>id: </label><%= selectedHero.id %></div>
-            <div>
-                <label>name: </label>
-                <input value="<%= selectedHero.name %>" placeholder="name"/>
-            </div>
+    <div class="hero-details"></div>
+</script>
+<script type="text/template" id="hero-details-template">
+    <% if (hero.id) { %>
+        <h2><span class="name"><%= hero.name %></span> details!</h2>
+        <div><label>id: </label><%= hero.id %></div>
+        <div>
+            <label>name: </label>
+            <input value="<%= hero.name %>" placeholder="name"/>
         </div>
     <% } %>
 </script>
@@ -38,8 +49,12 @@
 <script src="node_modules/backbone/backbone-min.js"></script>
 
 <!-- App -->
-<script src="js/views/app.js"></script>
-<script src="js/main.js"></script>
+<script src="js/models/hero.js"></script>
+<script src="js/collections/heroes.js"></script>
+<script src="js/views/hero.js"></script>
+<script src="js/views/heroes.js"></script>
+<!--<script src="js/views/hero-detail.js"></script>-->
+<script src="js/app.js"></script>
 
 </body>
 </html>

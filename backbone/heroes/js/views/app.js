@@ -13,7 +13,6 @@ app.AppView = Backbone.View.extend({
 
     events: {
         'click .heroes li': 'onSelect',
-        'input .hero-details input': 'editHeroName'
     },
 
     initialize: function () {
@@ -31,8 +30,8 @@ app.AppView = Backbone.View.extend({
             { id: 20, name: 'Tornado' }
         ]);
         this.selectedHero = new app.Hero();
-
         this.listenTo(this.heroes, 'change:name', this.updateHeroName);
+
         this.render();
     },
 
@@ -42,6 +41,8 @@ app.AppView = Backbone.View.extend({
             heroes: this.heroes.toJSON(),
             selectedHero: this.selectedHero.toJSON()
         }));
+        this.heroDetails = new app.HeroDetail({ model: this.selectedHero });
+        this.$el.append(this.heroDetails.$el);
     },
 
     onSelect: function (event) {
@@ -50,14 +51,8 @@ app.AppView = Backbone.View.extend({
         this.render();
     },
 
-    editHeroName: function (event) {
-        var input = event.target;
-        this.selectedHero.set('name', input.value);
-    },
-
     updateHeroName: function (model) {
         var name = model.get('name');
-        this.$el.find('.hero-details .name').html(name);
-        this.$el.find('.heroes .selected .name').html(name);
+        this.$el.find('.selected .name').html(name);
     }
 });
