@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Base</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <section id="typography">
+        <div class="page-header">
+            <h2>Typography</h2>
+        </div>
+
+        <h3>Headings</h3>
+        <h1>Bootstrap heading <small>Secondary text</small></h1>
+        <h2>Bootstrap heading</h2>
+        <h3>Bootstrap heading</h3>
+        <h4>Bootstrap heading</h4>
+        <h5>Bootstrap heading</h5>
+        <h6>Bootstrap heading</h6>
+
+        <h3>Text</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cum enim sapiente tenetur. A corporis eius iste libero modi nam, nesciunt nihil numquam optio praesentium qui, repellendus reprehenderit tenetur veniam!</p>
+
+        <h4>Lead</h4>
+        <div class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed cupiditate magni, saepe doloremque dignissimos quae!</div>
+
+        <h3>Emphasis</h3>
+        <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
+        <p>The following snippet of text is <em>rendered as italicized text</em>.</p>
+        <p><small>This line of text is meant to be treated as fine print.</small></p>
+
+        <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+        <p><del>This line of text is meant to be treated as deleted text.</del></p>
+        <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+
+        <h4>Contextual colors</h4>
+        <p class="text-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p><p class="text-primary">Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+        <p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+        <p class="text-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        <p class="text-warning">Etiam porta sem malesuada magna mollis euismod.</p>
+        <p class="text-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
+
+        <h3>Alignment</h3>
+        <p class="text-left">Left aligned text.</p>
+        <p class="text-center">Center aligned text.</p>
+        <p class="text-right">Right aligned text.</p>
+        <p class="text-nowrap">No wrap text.</p>
+
+        <h3>Transformation</h3>
+        <p class="text-lowercase">Lowercased text.</p>
+        <p class="text-uppercase">Uppercased text.</p>
+        <p class="text-capitalize">Capitalized text.</p>
+
+        <h3>Abbreviations</h3>
+        <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
+
+        <h3>Addresses</h3>
+        <address>
+            <strong>Twitter, Inc.</strong><br>
+            795 Folsom Ave, Suite 600<br>
+            San Francisco, CA 94107<br>
+            <abbr title="Phone">P:</abbr> (123) 456-7890
+        </address>
+
+        <h3>Blockquotes</h3>
+        <blockquote>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+        </blockquote>
+
+        <h3>Lists</h3>
+        <h4>Unordered</h4>
+        <ul>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Consectetur adipisicing elit.</li>
+            <li>Facilis, omnis.</li>
+        </ul>
+
+        <h4>Ordered</h4>
+        <ol>
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Consectetur adipiscing elit</li>
+            <li>Integer molestie lorem at massa</li>
+            <li>Facilisis in pretium nisl aliquet</li>
+        </ol>
+
+        <h4>Unstyled</h4>
+        <ul class="list-unstyled">
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Consectetur adipiscing elit</li>
+            <li>Integer molestie lorem at massa</li>
+            <li>Facilisis in pretium nisl aliquet</li>
+        </ul>
+
+        <h4>Inline</h4>
+        <ul class="list-inline">
+            <li>Lorem ipsum</li>
+            <li>Phasellus iaculis</li>
+            <li>Nulla volutpat</li>
+        </ul>
+
+        <h4>Definition</h4>
+        <dl>
+            <dt>Description lists</dt>
+            <dd>A description list is perfect for defining terms.</dd>
+            <dt>Euismod</dt>
+            <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+            <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+            <dt>Malesuada porta</dt>
+            <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+        </dl>
+
+        <h5>Horizontal</h5>
+        <dl class="dl-horizontal">
+            <dt>Description lists</dt>
+            <dd>A description list is perfect for defining terms.</dd>
+            <dt>Euismod</dt>
+            <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+            <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+            <dt>Malesuada porta</dt>
+            <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+        </dl>
+    </section>
+
+    <section id="code">
+        <div class="page-header">
+            <h2>Code</h2>
+        </div>
+
+        <h3>Inline</h3>
+        <p>For example, <code>&lt;section&gt;</code> should be wrapped as inline.</p>
+
+        <h3>User input</h3>
+        <p>To switch directories, type <kbd>cd</kbd> followed by the name of the directory.</p>
+
+        <h3>Basic block</h3>
+        <pre>&lt;p&gt;Sample text here...&lt;/p&gt;</pre>
+
+        <h3>Variables</h3>
+        <p><var>y</var> = <var>m</var><var>x</var> + <var>b</var></p>
+
+        <h3>Sample output</h3>
+        <p><samp>This text is meant to be treated as sample output from a computer program.</samp></p>
+    </section>
+
+    <section id="tables">
+        <div class="page-header">
+            <h2>Tables</h2>
+        </div>
+
+        <h3>Basic example</h3>
+        <table class="table">
+            <caption>Optional table caption.</caption>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3>Striped</h3>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3>Bordered</h3>
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3>Condensed</h3>
+        <table class="table table-condensed">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3>Contextual classes</h3>
+        <table class="table table-bordered">
+            <colgroup>
+                <col class="col-xs-2">
+                <col class="col-xs-10">
+            </colgroup>
+            <thead>
+            <tr>
+                <th>Class</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row"><code>.active</code></th>
+                <td class="active">Applies the hover color to a particular row or cell</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>.success</code></th>
+                <td class="success">Indicates a successful or positive action</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>.info</code></th>
+                <td class="info">Indicates a neutral informative change or action</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>.warning</code></th>
+                <td class="warning">Indicates a warning that might need attention</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>.danger</code></th>
+                <td class="danger">Indicates a dangerous or potentially negative action</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3>Responsive tables</h3>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Table heading</th>
+                    <th>Table heading</th>
+                    <th>Table heading</th>
+                    <th>Table heading</th>
+                    <th>Table heading</th>
+                    <th>Table heading</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="forms">
+        <div class="page-header">
+            <h2>Forms</h2>
+        </div>
+
+        <h3>Basic example</h3>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputFile">File input</label>
+                <input type="file" id="exampleInputFile">
+                <p class="help-block">Example block-level help text here.</p>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> Check me out
+                </label>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+
+        <h3>Inline form</h3>
+        <form class="form-inline">
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+                <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                    <div class="input-group-addon">.00</div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Transfer cash</button>
+        </form>
+
+        <h3>Horizontal form</h3>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Remember me
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Sign in</button>
+                </div>
+            </div>
+        </form>
+
+        <h3>Supported controls</h3>
+
+        <h4>Inputs</h4>
+        <input type="text" class="form-control" placeholder="Text input">
+
+        <h4>Textarea</h4>
+        <textarea class="form-control" rows="3"></textarea>
+
+        <h4>Checkboxes and radios</h4>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="">
+                Option one is this and that&mdash;be sure to include why it's great
+            </label>
+        </div>
+        <div class="checkbox disabled">
+            <label>
+                <input type="checkbox" value="" disabled>
+                Option two is disabled
+            </label>
+        </div>
+
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                Option one is this and that&mdash;be sure to include why it's great
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                Option two can be something else and selecting it will deselect option one
+            </label>
+        </div>
+        <div class="radio disabled">
+            <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+                Option three is disabled
+            </label>
+        </div>
+
+        <h5>Inline checkboxes and radios</h5>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+        </label>
+
+        <label class="radio-inline">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
+        </label>
+
+        <h4>Selects</h4>
+        <select class="form-control">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+
+        <h3>Static control</h3>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">email@example.com</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                </div>
+            </div>
+        </form>
+
+        <h3>Disabled state</h3>
+        <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>
+
+        <h3>Readonly state</h3>
+        <input class="form-control" type="text" placeholder="Readonly input here…" readonly>
+
+        <h3>Help text</h3>
+        <label class="sr-only" for="inputHelpBlock">Input with help text</label>
+        <input type="text" id="inputHelpBlock" class="form-control" aria-describedby="helpBlock">
+        <span id="helpBlock" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+
+        <h3>Validation states</h3>
+        <div class="form-group has-success">
+            <label class="control-label" for="inputSuccess1">Input with success</label>
+            <input type="text" class="form-control" id="inputSuccess1" aria-describedby="helpBlock2">
+            <span id="helpBlock2" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+        </div>
+        <div class="form-group has-warning">
+            <label class="control-label" for="inputWarning1">Input with warning</label>
+            <input type="text" class="form-control" id="inputWarning1">
+        </div>
+        <div class="form-group has-error">
+            <label class="control-label" for="inputError1">Input with error</label>
+            <input type="text" class="form-control" id="inputError1">
+        </div>
+
+        <h4>With optional icons</h4>
+        <div class="form-group has-success has-feedback">
+            <label class="control-label" for="inputSuccess2">Input with success</label>
+            <input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status">
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <span id="inputSuccess2Status" class="sr-only">(success)</span>
+        </div>
+        <div class="form-group has-warning has-feedback">
+            <label class="control-label" for="inputWarning2">Input with warning</label>
+            <input type="text" class="form-control" id="inputWarning2" aria-describedby="inputWarning2Status">
+            <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+            <span id="inputWarning2Status" class="sr-only">(warning)</span>
+        </div>
+        <div class="form-group has-error has-feedback">
+            <label class="control-label" for="inputError2">Input with error</label>
+            <input type="text" class="form-control" id="inputError2" aria-describedby="inputError2Status">
+            <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+            <span id="inputError2Status" class="sr-only">(error)</span>
+        </div>
+
+        <h3>Control sizing</h3>
+
+        <h4>Height sizing</h4>
+        <input class="form-control input-lg" type="text" placeholder="Large input">
+        <input class="form-control" type="text" placeholder="Default input">
+        <input class="form-control input-sm" type="text" placeholder="Small input">
+
+        <h4>Column sizing</h4>
+        <div class="row">
+        <div class="col-xs-2">
+            <input type="text" class="form-control" placeholder=".col-xs-2">
+        </div>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" placeholder=".col-xs-3">
+        </div>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" placeholder=".col-xs-4">
+        </div>
+    </section>
+
+    <section id="buttons">
+        <div class="page-header">
+            <h2>Buttons</h2>
+        </div>
+
+        <h3>Button tags</h3>
+        <a class="btn btn-default" href="#" role="button">Link</a>
+        <button class="btn btn-default" type="submit">Button</button>
+        <input class="btn btn-default" type="button" value="Input">
+        <input class="btn btn-default" type="submit" value="Submit">
+
+        <h3>Styles</h3>
+        <button type="button" class="btn btn-default">Default</button>
+        <button type="button" class="btn btn-primary">Primary</button>
+        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-info">Info</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-danger">Danger</button>
+        <button type="button" class="btn btn-link">Link</button>
+
+        <h3>Sizes</h3>
+        <p>
+            <button type="button" class="btn btn-primary btn-lg">Large button</button>
+            <button type="button" class="btn btn-default btn-lg">Large button</button>
+        </p>
+        <p>
+            <button type="button" class="btn btn-primary">Default button</button>
+            <button type="button" class="btn btn-default">Default button</button>
+        </p>
+        <p>
+            <button type="button" class="btn btn-primary btn-sm">Small button</button>
+            <button type="button" class="btn btn-default btn-sm">Small button</button>
+        </p>
+        <p>
+            <button type="button" class="btn btn-primary btn-xs">Extra small button</button>
+            <button type="button" class="btn btn-default btn-xs">Extra small button</button>
+        </p>
+
+        <h4>Block level buttons</h4>
+        <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+<button type="button" class="btn btn-default btn-lg btn-block">Block level button</button>
+
+        <h3>Active state</h3>
+        <button type="button" class="btn btn-primary active">Primary button</button>
+        <button type="button" class="btn btn-default active">Button</button>
+
+        <h3>Disabled state</h3>
+
+        <h4>Button element</h4>
+        <button type="button" class="btn btn-primary" disabled="disabled">Primary button</button>
+<button type="button" class="btn btn-default" disabled="disabled">Button</button>
+
+        <h4>Anchor element</h4>
+        <a href="#" class="btn btn-primary disabled" role="button">Primary link</a>
+<a href="#" class="btn btn-default disabled" role="button">Link</a>
+    </section>
+
+    <section id="images">
+        <div class="page-header">
+            <h2>Images</h2>
+        </div>
+
+        <img src="http://placehold.it/140x140" class="img-rounded">
+        <img src="http://placehold.it/140x140" class="img-circle">
+        <img src="http://placehold.it/140x140" class="img-thumbnail">
+    </section>
+
+    <section id="icons">
+        <div class="page-header">
+            <h2>Icons</h2>
+        </div>
+
+        <h3>Examples</h3>
+        <div class="btn-toolbar" role="toolbar">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-default" aria-label="Center Align">
+                    <span class="glyphicon glyphicon-align-center" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-default" aria-label="Right Align">
+                    <span class="glyphicon glyphicon-align-right" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-default" aria-label="Justify Align">
+                    <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+
+        <h3>Sizes</h3>
+        <div class="btn-toolbar" role="toolbar">
+            <button type="button" class="btn btn-default btn-lg">
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+            </button>
+            <button type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+            </button>
+            <button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+            </button>
+            <button type="button" class="btn btn-default btn-xs">
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+            </button>
+        </div>
+
+        <h3>Close icon</h3>
+        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        <h3>Carets</h3>
+        <span class="caret"></span>
+    </section>
+</div>
+
+</body>
+</html>
