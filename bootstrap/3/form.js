@@ -1,4 +1,4 @@
-(function() {
+(function($) {
 
     var app = {
         init: function() {
@@ -57,4 +57,4 @@
 
     app.init();
 
-})();
+})(jQuery);
