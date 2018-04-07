@@ -1,0 +1,23 @@
+<h2 class="header-2">Checkboxes</h2>
+<p class="p-0">With checkboxes, users can select multiple options in a list of options.</p>
+
+<form>
+    <section class="form-block">
+        <label>Static Checkboxes</label>
+        <div class="form-group">
+            <label>Default/Stacked checkbox group</label>
+            <clr-checkbox [id]="'checkrads_1'">Checkbox 1</clr-checkbox>
+            <clr-checkbox [id]="'checkrads_2'" [clrChecked]="true">Checkbox 2</clr-checkbox>
+            <clr-checkbox [id]="'checkrads_3'" [clrDisabled]="true">A disabled and unchecked checkbox</clr-checkbox>
+            <clr-checkbox [id]="'checkrads_4'" [clrChecked]="true" [clrDisabled]="true">
+                A disabled and checked checkbox
+            </clr-checkbox>
+        </div>
+        <div class="form-group">
+            <label>Inline checkbox group</label>
+            <clr-checkbox [clrInline]="true" [id]="'checkrads_5'">Checkbox 1</clr-checkbox>
+            <clr-checkbox [clrInline]="true" [id]="'checkrads_6'" [clrChecked]="true">Checkbox 2</clr-checkbox>
+            <clr-checkbox [clrInline]="true" [id]="'checkrads_7'">Checkbox 3</clr-checkbox>
+        </div>
+    </section>
+</form>

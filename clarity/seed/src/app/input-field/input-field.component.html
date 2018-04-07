@@ -1,0 +1,56 @@
+<h2 class="header-2">Input Fields</h2>
+<p class="p-0">UI has a single-line input field and a multiline text area.</p>
+
+<form>
+    <section class="form-block">
+        <label>Input Fields</label>
+        <div class="form-group">
+            <label for="formFields_3">Textbox [type="text"]</label>
+            <input type="text" id="formFields_3" placeholder="Email" size="25">
+        </div>
+        <div class="form-group">
+            <label for="formFields_7">Textbox [type="password"]</label>
+            <input type="password" id="formFields_7" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="formFields_8">Textarea</label>
+            <textarea id="formFields_8" rows="5"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="formFields_10">Textbox [type="number"]</label>
+            <input type="number" id="formFields_10" size="35">
+        </div>
+        <div class="form-group">
+            <label for="formFields_11">Textbox [type="date"]</label>
+            <input type="date" id="formFields_11" size="35">
+        </div>
+        <div class="form-group">
+            <label for="formFields_13">Textbox Readonly [type="text"]</label>
+            <input type="text" id="formFields_13" size="35" readonly value="Readonly Text">
+        </div>
+    </section>
+</form>
+
+<h3 class="header-3">Form Validation</h3>
+<form>
+    <section class="form-block">
+        <label>Hard Disk</label>
+        <div class="form-group">
+            <label class="required">Space</label>
+            <label for="validInput2" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation invalid tooltip-md">
+                <input type="text" id="validInput2">
+                <span class="tooltip-content">
+                    This field cannot be empty!
+                </span>
+            </label>
+            <div class="select">
+                <select id="exampleSelect1">
+                    <option>MB</option>
+                    <option>GB</option>
+                    <option>TB</option>
+                </select>
+            </div>
+        </div>
+    </section>
+</form>
+

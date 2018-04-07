@@ -1,0 +1,97 @@
+<h2 class="header-2">Tooltips</h2>
+<p class="p-0">A tooltip provides a short description of a UI element.</p>
+
+<h3 class="header-3">Directions</h3>
+<p class="p-0">Tooltips support six directions:</p>
+<ul>
+    <li>Top Right</li>
+    <li>Top Left</li>
+    <li>Bottom Right</li>
+    <li>Bottom Left</li>
+    <li>Right</li>
+    <li>Left</li>
+</ul>
+
+<div class="row">
+    <div class="col-xs-4"></div>
+    <div class="col-xs-8">
+        <clr-tooltip [clrTooltipDirection]="'top-right'" [clrTooltipSize]="'xs'">
+            <clr-icon shape="info-circle" size="24"></clr-icon>
+            <clr-tooltip-content>
+                <span>Lorem</span>
+            </clr-tooltip-content>
+        </clr-tooltip>
+        <clr-tooltip [clrTooltipDirection]="'top-left'" [clrTooltipSize]="'sm'">
+            <clr-icon shape="info-circle" size="24"></clr-icon>
+            <clr-tooltip-content>
+                <span>Lorem ipsum</span>
+            </clr-tooltip-content>
+        </clr-tooltip>
+        <clr-tooltip [clrTooltipDirection]="'bottom-right'" [clrTooltipSize]="'md'">
+            <clr-icon shape="info-circle" size="24"></clr-icon>
+            <clr-tooltip-content>
+                <span>Lorem ipsum sit</span>
+            </clr-tooltip-content>
+        </clr-tooltip>
+        <clr-tooltip [clrTooltipDirection]="'bottom-left'" [clrTooltipSize]="'md'">
+            <clr-icon shape="info-circle" size="24"></clr-icon>
+            <clr-tooltip-content>
+                <span>Lorem ipsum sit</span>
+            </clr-tooltip-content>
+        </clr-tooltip>
+        <clr-tooltip>
+            <clr-icon shape="info-circle" size="24"></clr-icon>
+            <clr-tooltip-content>
+                <span>Lorem ipsum sit</span>
+            </clr-tooltip-content>
+        </clr-tooltip>
+        <clr-tooltip [clrTooltipDirection]="'left'" [clrTooltipSize]="'sm'">
+            <clr-icon shape="info-circle" size="24"></clr-icon>
+            <clr-tooltip-content>
+                <span>Lorem ipsum sit</span>
+            </clr-tooltip-content>
+        </clr-tooltip>
+    </div>
+</div>
+
+<h3 class="header-3">Sizes</h3>
+<p class="p-0">Tooltips support four sizes:</p>
+<ul>
+    <li>Extra Small</li>
+    <li>Small</li>
+    <li>Medium</li>
+    <li>Large</li>
+</ul>
+
+<div class="row">
+    <div class="col-xs-4"></div>
+    <div class="col-xs-8">
+        <clr-tooltip [clrTooltipDirection]="'top-right'" [clrTooltipSize]="'xs'">
+            <clr-icon shape="info-circle" size="24"></clr-icon>
+            <clr-tooltip-content>
+                <span>Lorem ipsum dolor</span>
+            </clr-tooltip-content>
+        </clr-tooltip>
+
+        <clr-tooltip [clrTooltipDirection]="'top-right'" [clrTooltipSize]="'sm'">
+            <clr-icon shape="info-circle" size="24"></clr-icon>
+            <clr-tooltip-content>
+                <span>Lorem ipsum dolor</span>
+            </clr-tooltip-content>
+        </clr-tooltip>
+
+        <clr-tooltip [clrTooltipDirection]="'top-right'" [clrTooltipSize]="'md'">
+            <clr-icon shape="info-circle" size="24"></clr-icon>
+            <clr-tooltip-content>
+                <span>Lorem ipsum dolor</span>
+            </clr-tooltip-content>
+        </clr-tooltip>
+
+        <clr-tooltip [clrTooltipDirection]="'top-right'" [clrTooltipSize]="'lg'">
+            <clr-icon shape="info-circle" size="24"></clr-icon>
+            <clr-tooltip-content>
+                <span>Lorem ipsum dolor</span>
+            </clr-tooltip-content>
+        </clr-tooltip>
+    </div>
+</div>

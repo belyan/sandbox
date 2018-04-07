@@ -1,0 +1,53 @@
+<h2 class="header-2">Modals</h2>
+<p class="p-0">Modals provide information or help a user complete a task. They require the user to take an action to dismiss them.</p>
+
+<button class="btn btn-primary" (click)="basic = true">Show modal</button>
+
+<clr-modal [(clrModalOpen)]="basic">
+    <h3 class="modal-title">I have a nice title</h3>
+    <div class="modal-body">
+        <p>But not much to say...</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="basic = false">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="basic = false">Ok</button>
+    </div>
+</clr-modal>
+
+<h3 class="header-3">Sizes</h3>
+
+<button class="btn btn-primary" (click)="smSize = true">Small Modal</button>
+<button class="btn btn-primary" (click)="lgSize = true">Large Modal</button>
+<button class="btn btn-primary" (click)="xlSize = true">Extra Large Modal</button>
+
+<clr-modal [(clrModalOpen)]="smSize" [clrModalSize]="'sm'" [clrModalStaticBackdrop]="true">
+    <h3 class="modal-title">Small modal</h3>
+    <div class="modal-body">
+        <p>I am a small modal.</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="smSize = false">Ok</button>
+    </div>
+</clr-modal>
+
+<clr-modal [(clrModalOpen)]="lgSize" [clrModalSize]="'lg'" [clrModalStaticBackdrop]="true">
+    <h3 class="modal-title">Large modal</h3>
+    <div class="modal-body">
+        <p>I am a large modal.</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="lgSize = false">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="lgSize = false">Ok</button>
+    </div>
+</clr-modal>
+
+<clr-modal [(clrModalOpen)]="xlSize" [clrModalSize]="'xl'" [clrModalStaticBackdrop]="true">
+    <h3 class="modal-title">Extra Large modal</h3>
+    <div class="modal-body">
+        <p>I am an extra large modal.</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="xlSize = false">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="xlSize = false">Ok</button>
+    </div>
+</clr-modal>
