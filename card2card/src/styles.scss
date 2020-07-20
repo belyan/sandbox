@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+
+.form-control {
+  @at-root select#{&} {
+    -webkit-appearance: none;
+    padding-right: 2em;
+  }
+
+  &.is-valid,
+  &.is-invalid {
+    background-size: 0.75rem 0.75rem;
+    padding-right: 2em;
+  }
+}

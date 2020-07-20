@@ -1,0 +1,33 @@
+<h2 class="h3 mb-4">История переводов</h2>
+
+<table class="table" *ngIf="transfers?.length; else noTransfers">
+  <thead class="thead-light">
+  <tr>
+    <th scope="col" class="text-center">№</th>
+    <th scope="col">Карта плательщика</th>
+    <th scope="col">Карта получателя</th>
+    <th scope="col" class="text-right">Сумма</th>
+    <th scope="col">Дата выполнения</th>
+    <th scope="col">Действие</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let transfer of transfers; index as id">
+    <td class="text-center">{{id + 1}}</td>
+    <td>{{transfer.cardFrom.number | cardNumber}}</td>
+    <td>{{transfer.cardTo.number | cardNumber}}</td>
+    <td class="text-right">{{transfer.amount | number}}</td>
+    <td>{{transfer.date | date:'shortDate'}}</td>
+    <td>
+      <button type="button" class="btn btn-sm btn-outline-primary mx-1" (click)="repeatTransfer(id)">Повторить</button>
+      <button type="button" class="btn btn-sm btn-outline-danger mx-1" (click)="removeTransfer(id)">Удалить</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<ng-template #noTransfers>
+  <p>В истории нет переводов с карты на карту.</p>
+</ng-template>
+
+<app-message #messageSuccess>Перевод был успешно удален из истории.</app-message>

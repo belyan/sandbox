@@ -1,0 +1,6 @@
+<div role="alert" class="alert alert-{{type}} fade" [class.alert-dismissible]="closable" [class.show]="!hidden">
+  <ng-content></ng-content>
+  <button type="button" class="close" aria-label="Close" (click)="hide()" *ngIf="closable">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>

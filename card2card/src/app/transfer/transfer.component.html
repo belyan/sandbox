@@ -1,0 +1,96 @@
+<h2 class="h3 mb-4">Новый перевод</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="col d-flex">
+      <div class="card bg-light w-100" formGroupName="cardFrom">
+        <div class="card-body">
+          <h5 class="card-title">Карта плательщика</h5>
+          <div class="form-group">
+            <label for="cardFromNumber" class="small mb-1"
+                   [class.text-danger]="isInvalid('cardFrom.number')">Номер карты</label>
+            <input type="text" autocomplete="off" id="cardFromNumber" class="form-control"
+                   placeholder="0000 0000 0000 0000" formControlName="number" appCardNumber
+                   [minlength]="cardNumberLength" [maxlength]="cardNumberLength"
+                   [class.is-invalid]="form.get('cardFrom.number').invalid && form.get('cardFrom.number').touched"
+                   [class.is-valid]="form.get('cardFrom.number').valid && form.get('cardFrom.number').touched">
+          </div>
+          <div class="form-row">
+            <div class="form-group col mb-0">
+              <label for="cardFromHolder" class="small mb-1"
+                     [class.text-danger]="isInvalid('cardFrom.holder')">ФИО держателя</label>
+              <input type="text" autocomplete="off" id="cardFromHolder" class="form-control" formControlName="holder"
+                     [class.is-invalid]="isInvalid('cardFrom.holder')" [class.is-valid]="isValid('cardFrom.holder')">
+              <small class="form-text text-muted">Как указано на карте</small>
+            </div>
+            <div class="form-group col-auto mb-0">
+              <label for="cardFromExpMonth" class="small mb-1"
+                     [class.text-danger]="isInvalid('cardFrom.expMonth') || isInvalid('cardFrom.expYear')">Активна до</label>
+              <div class="form-row">
+                <div class="form-group col-6 mb-0">
+                  <select id="cardFromExpMonth" class="form-control" title="Месяц" formControlName="expMonth"
+                          [class.is-invalid]="isInvalid('cardFrom.expMonth')" [class.is-valid]="isValid('cardFrom.expMonth')">
+                    <option *ngFor="let month of months" [ngValue]="month">{{month + 1 | number:'2.0-0'}}</option>
+                  </select>
+                  <small class="form-text text-muted text-center">ММ</small>
+                </div>
+                <div class="form-group col-6 mb-0">
+                  <select class="form-control" title="Год" formControlName="expYear"
+                          [class.is-invalid]="isInvalid('cardFrom.expYear')" [class.is-valid]="isValid('cardFrom.expYear')">
+                    <option *ngFor="let year of years" [ngValue]="year">{{year % 100 | number:'2.0-0'}}</option>
+                  </select>
+                  <small class="form-text text-muted text-center">ГГ</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-auto align-self-center">
+      <svg width="5em" height="5em" viewBox="0 0 16 16" class="bi bi-arrow-right-short text-muted" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M8.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.793 8 8.146 5.354a.5.5 0 0 1 0-.708z"/>
+        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5H11a.5.5 0 0 1 0 1H4.5A.5.5 0 0 1 4 8z"/>
+      </svg>
+    </div>
+    <div class="col d-flex">
+      <div class="card bg-light w-100" formGroupName="cardTo">
+        <div class="card-body">
+          <h5 class="card-title">Карта получателя</h5>
+          <div class="form-group">
+            <label for="cardToNumber" class="small mb-1"
+                   [class.text-danger]="isInvalid('cardTo.number')">Номер карты</label>
+            <input type="text" autocomplete="off" id="cardToNumber" class="form-control"
+                   placeholder="0000 0000 0000 0000" formControlName="number" appCardNumber
+                   [minlength]="cardNumberLength" [maxlength]="cardNumberLength"
+                   [class.is-invalid]="isInvalid('cardTo.number')" [class.is-valid]="isValid('cardTo.number')">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row mt-5 justify-content-center">
+    <div class="form-group col-4">
+      <div class="input-group input-group-lg">
+        <input type="number" class="form-control" placeholder="Сумма" formControlName="amount"
+               [min]="amountMin" [max]="amountMax" [step]="amountStep"
+               [class.is-invalid]="isInvalid('amount')" [class.is-valid]="isValid('amount')">
+        <div class="input-group-append">
+          <span class="input-group-text">₽</span>
+        </div>
+        <ng-container *ngIf="isInvalid('amount')">
+          <div class="invalid-feedback" *ngIf="hasError('amount', 'required')">Не указана сумма перевода</div>
+          <div class="invalid-feedback" *ngIf="hasError('amount', 'min') || hasError('amount', 'max')">Сумма должна быть {{amountMin}} до {{amountMax | number}} рублей</div>
+        </ng-container>
+      </div>
+      <small class="form-text text-muted" *ngIf="!isInvalid('amount')">От {{amountMin}} до {{amountMax | number}} рублей за один перевод</small>
+    </div>
+    <div class="form-group col-auto">
+      <button type="submit" class="btn btn-lg btn-primary">Перевести</button>
+    </div>
+  </div>
+</form>
+
+<code hidden>{{form.value | json}}</code>
+
+<app-message #messageSuccess type="success"><strong>Поздравляем!</strong> Ваш перевод был успешно выполнен.</app-message>
